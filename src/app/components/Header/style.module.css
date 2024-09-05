@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #D9D8EA;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.nav a {
+  margin: 0 20px;
+  color: #602B5F;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  color: #FFFFFF;
+}
+
+.nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.userMenu {
+  margin-left: auto;
+}

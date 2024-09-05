@@ -1,0 +1,24 @@
+.footer {
+  background-color: #602B5F; /* Color de fondo oscuro */
+  color: white; /* Color de texto */
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 16px; /* Tamaño de fuente moderado */
+}
+
+.footer p {
+  margin: 0; /* Elimina los márgenes alrededor del párrafo */
+  letter-spacing: 1px; /* Aumenta el espaciado entre letras para mejorar la legibilidad */
+  opacity: 0.9; /* Un poco de transparencia para suavizar el texto */
+  transition: opacity 0.3s ease; /* Transición suave en hover */
+}
+
+
+.footer a {
+  color: #ffcc00; /* Color de enlaces */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  font-weight: bold; /* Negrita para los enlaces */
+}

@@ -1,0 +1,23 @@
+.userMenu {
+    display: flex;
+    align-items: center;
+  }
+
+  .userMenu p {
+    color: #602B5F;
+  }
+  
+  .logoutButton {
+    background-color: #602B5F;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 15px;
+    color: #D9D8EA;
+  }
+  
+  .logoutButton:hover {
+    background-color: #421e42;
+  }
+  
