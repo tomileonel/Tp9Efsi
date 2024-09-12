@@ -15,6 +15,23 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#main-content {
+  min-height: 100vh; /* Esto asegura que el contenido ocupe al menos el alto de la pantalla */
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto; /* Esto empuja el footer al final del contenedor */
 }
 
 body {

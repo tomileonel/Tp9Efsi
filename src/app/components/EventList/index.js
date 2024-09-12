@@ -3,6 +3,7 @@ import styles from './style.module.css';
 
 export default function EventList() {
   return (
+    <div className={styles.container}>
     <div className={styles.eventList}>
       <h1>Listado de Eventos</h1>
       <ul>
@@ -16,6 +17,7 @@ export default function EventList() {
           <Link href="/eventos/3">Evento 3</Link>
         </li>
       </ul>
+    </div>
     </div>
   );
 }
