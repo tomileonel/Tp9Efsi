@@ -1,4 +1,5 @@
-"use client"
+"use client";  // Asegúrate de añadir esto en la primera línea
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'; // Reemplazo para `useRouter`
 import styles from './style.module.css';
