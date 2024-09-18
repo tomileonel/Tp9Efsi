@@ -1,5 +1,5 @@
 "use client"; // Marca este archivo como un Client Component
-
+import styles from './page.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Usar useRouter para redirigir después del login
 
@@ -34,14 +34,14 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className={styles['login-container']}>
       <h1>Iniciar Sesión</h1>
       <form onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
-          value={email} // Actualiza el valor de email
-          onChange={(e) => setEmail(e.target.value)} // Actualiza el estado del email
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input

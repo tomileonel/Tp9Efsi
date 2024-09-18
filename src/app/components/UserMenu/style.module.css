@@ -1,23 +1,64 @@
+/* Contenedor principal del UserMenu */
 .userMenu {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea los botones al final */
+  gap: 15px; /* Espacio entre los botones */
+}
 
+/* Botones principales: Iniciar Sesión y Registrarse */
+.userMenu button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #602B5F; /* Fondo oscuro */
+  border: none;
+  border-radius: 25px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+}
+
+/* Efecto hover para los botones */
+.userMenu button:hover {
+  background-color: #9D82A5; /* Color más claro en hover */
+  transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+}
+
+/* Botón de Iniciar Sesión específico */
+.userMenu button:first-child {
+  background-color: #5C2E70; /* Color para diferenciar Iniciar Sesión */
+}
+
+.userMenu button:first-child:hover {
+  background-color: #7C3E98; /* Hover específico para Iniciar Sesión */
+}
+
+/* Botón de Registrarse específico */
+.userMenu button:last-child {
+  background-color: #805797; /* Color distintivo para Registrarse */
+}
+
+.userMenu button:last-child:hover {
+  background-color: #A678B5; /* Hover específico para Registrarse */
+}
+
+/* Estilo del mensaje de bienvenida */
+.userMenu p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3C2A4D; /* Color oscuro */
+  margin-right: 20px; /* Espaciado antes de los botones */
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .userMenu button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
   .userMenu p {
-    color: #602B5F;
+    font-size: 16px;
   }
-  
-  .logoutButton {
-    background-color: #602B5F;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 15px;
-    color: #D9D8EA;
-  }
-  
-  .logoutButton:hover {
-    background-color: #421e42;
-  }
-  
+}

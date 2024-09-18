@@ -1,5 +1,5 @@
 "use client"; // Marca este archivo como un Client Component
-
+import styles from './page.module.css';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation'; // Usa usePathname para obtener la ruta actual
 
@@ -36,7 +36,7 @@ export default function Register() {
   };
 
   return (
-    <div className="register-container">
+    <div className={styles.registerConteiner}>
       <h1>Registrarse</h1>
       <form onSubmit={handleRegister}>
         <input

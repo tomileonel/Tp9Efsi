@@ -1,0 +1,89 @@
+/*#D9D8EA*/
+/* Estilo principal del header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos de forma equitativa */
+  padding: 15px 30px; /* Ajusta el padding para un diseño más fluido */
+  background-color: #3C2A4D; /* Color de fondo más profundo */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añade sombra para dar profundidad */
+  position: sticky; /* El header permanece en la parte superior al hacer scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Container */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Hace el logo clicable */
+}
+
+/* Logo */
+.logo {
+  width: 140px; /* Ajusta el tamaño del logo */
+  transition: transform 0.3s ease; /* Efecto suave al pasar el cursor */
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Efecto de ampliación al hacer hover */
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  flex-grow: 1; /* Hace que el nav ocupe el espacio necesario */
+  justify-content: center; /* Centra los enlaces en la barra de navegación */
+}
+
+.nav a {
+  margin: 0 20px;
+  color: #F1E8FF; /* Color de texto claro */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500; /* Añade un poco de grosor a los textos */
+  position: relative; /* Necesario para los efectos de hover */
+  padding-bottom: 5px;
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+/* Efecto hover para los enlaces */
+.nav a:hover {
+  color: #FFD700; /* Color dorado para un toque distintivo */
+}
+
+/* Subrayado animado para el enlace actual */
+.nav a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #FFD700; /* Subrayado dorado */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+/* Subrayado animado al pasar el cursor */
+.nav a:hover::after {
+  width: 100%; /* Llena el ancho completo al hacer hover */
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #FFD700;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+/* Menú de usuario */
+.userMenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* El menú de usuario se alinea a la derecha */
+  margin-left: auto;
+}
