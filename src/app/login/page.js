@@ -1,15 +1,17 @@
-"use client"; 
+"use client";
 import styles from './page.module.css';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'; 
+import { useContext, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { TokenContext } from "../context/TokenContext";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-
+  const { saveToken } = useContext(TokenContext);
   const handleLogin = async (e) => {
     e.preventDefault();
+
     const res = await fetch('http://localhost:4000/api/user/login', {
       method: 'POST',
       headers: {
@@ -26,7 +28,18 @@ export default function Login() {
     } else {
       alert('Error al iniciar sesión: ' + data.message);
     }
+    
+    try {
+      const response = await login();
+      saveToken(response.data.token);
+      router.push('/dashboard');
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+    
+  
 
   return (
     <div className={styles.loginContainer}>
