@@ -1,6 +1,7 @@
 "use client"; 
 import styles from './page.module.css';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation'; 
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -8,49 +9,22 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const isValidEmail = (email) => {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return regex.test(email);
-  };
-
   const handleRegister = async (e) => {
     e.preventDefault();
-
-    // Validaciones
-    if (firstName.length < 3) {
-      alert('El nombre debe tener al menos 3 letras.');
-      return;
-    }
-    if (lastName.length < 3) {
-      alert('El apellido debe tener al menos 3 letras.');
-      return;
-    }
-    if (!isValidEmail(email)) {
-      alert('Por favor, introduce un email válido.');
-      return;
-    }
-    if (password.length < 3) {
-      alert('La contraseña debe tener al menos 3 letras.');
-      return;
-    }
-
     try {
       const res = await fetch('http://localhost:4000/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ first_name: firstName, last_name: lastName, username: email, password }),
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, username: email, password: password }),
       });
-      
-      const data = await res.json();
 
-      if (res.ok && data.message === 'created') { 
-        localStorage.setItem('token', data.token);
-        alert('Registro exitoso.'); // Mensaje de éxito
-        window.location.href = '/'; // Redirigir a la página principal
+
+      if (res.statusText== "Created") { 
+        window.location.href = '/login'; 
       } else {
-        alert('Error al registrarse: ' + data.message);
+        alert('Error al registrarse');
       }
     } catch (error) {
       console.error('Error en el registro:', error);
