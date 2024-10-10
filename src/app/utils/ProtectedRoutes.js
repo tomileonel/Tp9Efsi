@@ -14,7 +14,7 @@ export const ProtectedRoutes = ({ children }) => {
     }
   }, [isLoggedIn, router]);*/
 
-  if (!isLoggedIn && !router.pathname !== "/login") {
+  if (!isLoggedIn && !router.pathname !== "/login" && !router.pathname !== "/login") {
     router.push("../login");
   }
 
