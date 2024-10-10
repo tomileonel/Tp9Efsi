@@ -1,7 +1,6 @@
-"use client"; // Marca este archivo como un Client Component
+"use client"; 
 import styles from './page.module.css';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation'; // Usa usePathname para obtener la ruta actual
 
 export default function Register() {
   const [firstName, setFirstName] = useState('');
@@ -9,8 +8,32 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const isValidEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    // Validaciones
+    if (firstName.length < 3) {
+      alert('El nombre debe tener al menos 3 letras.');
+      return;
+    }
+    if (lastName.length < 3) {
+      alert('El apellido debe tener al menos 3 letras.');
+      return;
+    }
+    if (!isValidEmail(email)) {
+      alert('Por favor, introduce un email válido.');
+      return;
+    }
+    if (password.length < 3) {
+      alert('La contraseña debe tener al menos 3 letras.');
+      return;
+    }
+
     try {
       const res = await fetch('http://localhost:4000/api/user/register', {
         method: 'POST',
@@ -22,11 +45,10 @@ export default function Register() {
       
       const data = await res.json();
 
-      if (res.ok) { // Usa `res.ok` para verificar si la respuesta fue exitosa
-        // Guardar token en localStorage
+      if (res.ok && data.message === 'created') { 
         localStorage.setItem('token', data.token);
-        // Redirigir al usuario a la página principal
-        window.location.href = '/'; // Redirección manual
+        alert('Registro exitoso.'); // Mensaje de éxito
+        window.location.href = '/'; // Redirigir a la página principal
       } else {
         alert('Error al registrarse: ' + data.message);
       }
