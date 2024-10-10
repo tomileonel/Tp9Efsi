@@ -1,36 +1,39 @@
-'use client'
+'use client';
 
-import React, {createContext,useState,useEffect} from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const TokenContext = createContext();
 
-const TokenProvider = ({children}) => {
-  const [token,setToken] = useState();    
+const TokenProvider = ({ children }) => {
+  const [token, setToken] = useState();   
+  const [name, setName] = useState();
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-
-    if(storedToken){
+    if (storedToken) {
       setToken(storedToken);
     }
-  }, [])
+  }, []);
 
-  const saveToken = (newToken)=>{
-    localStorage.setItem('token',newToken);
-    setToken(newToken)
-  }
+  const saveToken = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setToken(newToken);
+  };
 
   return (
     <TokenContext.Provider
       value={{
         token,
+        setToken,
         saveToken,
-        isLoggedIn: !!token           
+        isLoggedIn: !!token,           
+        name, 
+        setName 
       }}
     >
       {children}
     </TokenContext.Provider>
-  )
+  );
 }
 
 export default TokenProvider;

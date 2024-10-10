@@ -26,7 +26,7 @@ export default function Header() {
           Contacto
         </Link>
       </nav>
-      {!isLoggedIn && <UserMenu />}
+<UserMenu />
     </header>
   );
 }
