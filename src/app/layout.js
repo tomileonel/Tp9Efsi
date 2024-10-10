@@ -7,9 +7,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body style={{margin:0}}>
-        <Header />
+        
           <TokenProvider>
             <ProtectedRoutes>
+            <Header />
               {children}
             </ProtectedRoutes>
           </TokenProvider>

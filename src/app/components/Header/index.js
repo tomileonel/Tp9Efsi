@@ -1,16 +1,22 @@
-"use client";  // Asegúrate de añadir esto en la primera línea
+'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // Reemplazo para `useRouter`
+import { usePathname } from 'next/navigation'; 
 import styles from './style.module.css';
 import UserMenu from '../UserMenu';
+import { useContext } from 'react';
+import { TokenContext } from '../../context/TokenContext';
 
 export default function Header() {
-  const pathname = usePathname(); // Obtiene la ruta actual
+  const pathname = usePathname(); 
+  const { isLoggedIn } = useContext(TokenContext);
+
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
-        <img src="/logo.png" alt="Logo" className={styles.logo} />
+        <Link href="/" aria-current={pathname === '/' ? 'page' : undefined}>
+          <img src="/logo.png" alt="Logo" className={styles.logo} />
+        </Link>
       </div>
       <nav className={styles.nav}>
         <Link href="/" aria-current={pathname === '/' ? 'page' : undefined}>
@@ -20,7 +26,7 @@ export default function Header() {
           Contacto
         </Link>
       </nav>
-      <UserMenu />
+      {!isLoggedIn && <UserMenu />}
     </header>
   );
 }
