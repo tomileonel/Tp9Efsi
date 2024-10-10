@@ -7,7 +7,6 @@ import UserMenu from '../UserMenu';
 
 export default function Header() {
   const pathname = usePathname(); // Obtiene la ruta actual
-
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
