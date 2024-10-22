@@ -1,0 +1,54 @@
+/* FormularioEvento.module.css */
+
+.container {
+    background-color: #D9D8EA;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-top: 50px !important;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    color: #805797;
+    text-align: center;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 8px;
+    color: #805797;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #805797;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    background-color: #805797;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #6e4a97; /* Un tono más oscuro para el hover */
+  }
+  
+  .alert {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  

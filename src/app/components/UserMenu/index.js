@@ -6,19 +6,25 @@ import { TokenContext } from "../../context/TokenContext";
 
 export default function UserMenu() {
   const { token, name, setToken } = useContext(TokenContext);
-
   const borrarLS = () => {
     localStorage.removeItem('token'); 
     setToken(null); 
     window.location.href = '/'; 
   };
 
+
   return (
     <div className={styles.userMenu}>
       {token ? (
         <div>
           <p>{name}</p>
+          <Link href="/FormularioEvento">
+
+          <button className={styles.button}>Crear Evento</button>
+          </Link>
+
           <button className={styles.button} onClick={borrarLS}>Cerrar Sesión</button>
+          
         </div>
       ) : (
         <div>

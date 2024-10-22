@@ -1,8 +1,12 @@
 'use client';
 
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const TokenContext = createContext();
+
+export const useAuth = () => {
+  return useContext(TokenContext);
+};
 
 const TokenProvider = ({ children }) => {
   const [token, setToken] = useState();   
@@ -34,6 +38,6 @@ const TokenProvider = ({ children }) => {
       {children}
     </TokenContext.Provider>
   );
-}
+};
 
 export default TokenProvider;

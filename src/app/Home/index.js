@@ -8,6 +8,8 @@ export default function EventList() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+
   // Obtener los eventos de la API
   useEffect(() => {
     const fetchEvents = async () => {
