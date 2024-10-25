@@ -4,7 +4,6 @@
     align-items: center;
     padding: 40px;
     background-color: #F4F4F9;
-    min-height: 100vh;
   }
   
   .eventDetailCard {
@@ -69,3 +68,19 @@
     }
   }
   
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin: 5px;
+    background-color: #602B5F; /* Fondo oscuro */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+  }
+  .button:hover {
+    background-color: #9D82A5; /* Color más claro en hover */
+    transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+  }
