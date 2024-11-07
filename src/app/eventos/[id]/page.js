@@ -6,10 +6,18 @@ import { TokenContext } from "../../context/TokenContext";
 import { useRouter } from 'next/navigation';
 
 export default function EventDetail({ params }) {
-  const { id: eventId } = params; // Obtén el ID de los params
+  const { id: eventId } = params; 
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { token } = useContext(TokenContext);
+  const { token, name } = useContext(TokenContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!name) {
+      router.push('/login');
+      return;
+    }
+  }, [name, router]);
 
   const handleSubscribe = async () => {
     try {
@@ -19,7 +27,7 @@ export default function EventDetail({ params }) {
       alert('Te has suscrito al evento!');
     } catch (error) {
       const errorMessage = error.response ? error.response.data : error.message;
-      alert(`Ya te suscribiste papi`);
+      alert('Ya te suscribiste papi');
       console.error('Error subscribing to event:', errorMessage);
     }
   };

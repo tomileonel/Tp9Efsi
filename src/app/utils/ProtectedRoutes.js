@@ -13,6 +13,8 @@ export const ProtectedRoutes = ({ children }) => {
     if (!isLoggedIn && (pathname.startsWith("/eventos/")  || pathname === "/FormularioEvento")) {
       router.push("/login"); 
     }
+
+    
   
 
   return <>{children}</>;

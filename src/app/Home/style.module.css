@@ -4,6 +4,11 @@
   padding: 20px;
 }
 
+.eventItem a, .eventItem .next-link {
+  text-decoration: none; 
+}
+
+
 .title {
   color: #602B5F;
   font-size: 2.5rem;
@@ -11,6 +16,8 @@
   margin-bottom: 30px;
   font-family: 'Arial', sans-serif;
 }
+
+
 
 .eventList {
   display: grid;
