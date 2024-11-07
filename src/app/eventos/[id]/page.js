@@ -13,7 +13,7 @@ export default function EventDetail({ params }) {
 
   const handleSubscribe = async () => {
     try {
-      await axios.post(`http://localhost:4000/api/event/${eventId}/enrollment`, {}, {
+      await axios.post(`http://localhost:4000/api/event/${eventId}/enrollment`, {}, { 
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Te has suscrito al evento!');
@@ -67,8 +67,10 @@ export default function EventDetail({ params }) {
           
           {eventHasEnded ? (
             <p className={styles.eventEnded}>El evento ya ha finalizado</p>
-          ) : (
+          ) : event.enabled_for_enrollment ? (
             <button className={styles.button} onClick={handleSubscribe}>Suscribirse</button>
+          ) : (
+            <p className={styles.notEnabled}>No habilitado para inscripción</p>
           )}
         </div>
       </div>
