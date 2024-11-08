@@ -39,7 +39,7 @@ export default function Login() {
         saveToken(data.token);
         
         // Redirigir al usuario a la página principal
-        router.push('/'); 
+        window.location.href = '/';
       } else {
         alert('Error al iniciar sesión: ' + data.message);
       }
