@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { TokenContext } from "../../context/TokenContext";
 
 export default function UserMenu() {
-  const { token, name, setToken } = useContext(TokenContext);
+  const { token, name, setToken,logout } = useContext(TokenContext);
   const borrarLS = () => {
-    localStorage.removeItem('token'); 
-    setToken(null); 
+    logout(); 
     window.location.href = '/'; 
   };
 

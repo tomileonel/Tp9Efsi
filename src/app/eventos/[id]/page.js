@@ -12,12 +12,6 @@ export default function EventDetail({ params }) {
   const { token, name } = useContext(TokenContext);
   const router = useRouter();
 
-  useEffect(() => {
-    if (!name) {
-      router.push('/login');
-      return;
-    }
-  }, [name, router]);
 
   const handleSubscribe = async () => {
     try {

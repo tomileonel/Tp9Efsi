@@ -9,10 +9,10 @@ export default function RootLayout({ children }) {
       <body style={{margin:0}}>
         
           <TokenProvider>
-            <ProtectedRoutes>
+            {/* <ProtectedRoutes> */}
             <Header />
               {children}
-            </ProtectedRoutes>
+            {/* </ProtectedRoutes> */}
           </TokenProvider>
         <Footer />
       </body>

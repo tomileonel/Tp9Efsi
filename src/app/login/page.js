@@ -30,7 +30,7 @@ export default function Login() {
         setName(data.result.username); 
         
         // Guardar el token en cookies con una expiración de 30 días
-        setCookie(null, 'authToken', data.token, {
+        setCookie(null, 'user', data.token, {
           path: '/',            // Disponible en todo el sitio
           maxAge: 30 * 24 * 60 * 60,  // 30 días
         });
