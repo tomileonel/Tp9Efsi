@@ -26,16 +26,16 @@ export default function Login() {
       const data = await res.json();
 
       if (res.ok) {
-        // Establecer el nombre en el contexto
-        setName(data.result.username); 
+        // // Establecer el nombre en el contexto
+        // setName(data.result.username); 
         
-        // Guardar el token en cookies con una expiración de 30 días
-        setCookie(null, 'user', data.token, {
-          path: '/',            // Disponible en todo el sitio
-          maxAge: 30 * 24 * 60 * 60,  // 30 días
-        });
+        // // Guardar el token en cookies con una expiración de 30 días
+        // setCookie(null, 'user', data.token, {
+        //   path: '/',            // Disponible en todo el sitio
+        //   maxAge: 30 * 24 * 60 * 60,  // 30 días
+        // });
 
-        // Llamar a la función saveToken, si la necesitas en tu contexto
+        // // Llamar a la función saveToken, si la necesitas en tu contexto
         saveToken(data.token);
         
         // Redirigir al usuario a la página principal

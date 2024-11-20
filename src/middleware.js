@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 
 // Rutas públicas donde no debe ejecutarse el middleware
-const publicRoutes = ["/login", "/inicio", "/registro", "/"] 
+const publicRoutes = ["/login",  "/register", "/"] 
 
 export default async function middleware(req) {
   const path = req.nextUrl.pathname;
@@ -11,7 +11,7 @@ export default async function middleware(req) {
   const isProtectedRoute = !publicRoutes.includes(path);
   
   // Obtén la cookie 'user'
-  const cookie = (await cookies()).get('user')?.value;
+  const cookie = req.cookies.get('user');
 
   // Si es una ruta protegida y no hay cookie, redirige a login
   if (isProtectedRoute && !cookie) {

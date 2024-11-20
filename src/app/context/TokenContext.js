@@ -13,7 +13,7 @@ export const useAuth = () => {
 
 const TokenProvider = ({ children }) => {
   const [token, setToken] = useState();   
-  const [name, setName] = useState();
+  // const [name, setName] = useState();
   const router = useRouter();
 
   useEffect(() => {
@@ -43,11 +43,11 @@ const TokenProvider = ({ children }) => {
     <TokenContext.Provider
       value={{
         token,
-        setToken,
+        // setToken,
         saveToken,
         isLoggedIn: !!token,           
-        name, 
-        setName,logout
+        // name, setName,
+        logout
       }}
     >
       {children}
